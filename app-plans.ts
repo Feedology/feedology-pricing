@@ -120,7 +120,9 @@ function assertCustomPlanConfig(appPlan: AppPlan, customPlanConfig: AppPlanConfi
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The count of feeds
  */
-export function getAppPlanCountFeeds(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): number {
+export function getAppPlanCountFeeds(appPlan: typeof SHOP_APP_PLANS.CUSTOM, customPlanConfig: AppPlanConfig): number;
+export function getAppPlanCountFeeds(appPlan: AppPlan | null): number;
+export function getAppPlanCountFeeds(appPlan: AppPlan | null, customPlanConfig?: AppPlanConfig): number {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
         return freePlan.count_feeds;
@@ -138,7 +140,9 @@ export function getAppPlanCountFeeds(appPlan: AppPlan | null, customPlanConfig: 
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The maximum number of variants
  */
-export function getAppPlanMaxVariants(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): number {
+export function getAppPlanMaxVariants(appPlan: typeof SHOP_APP_PLANS.CUSTOM, customPlanConfig: AppPlanConfig): number;
+export function getAppPlanMaxVariants(appPlan: AppPlan | null): number;
+export function getAppPlanMaxVariants(appPlan: AppPlan | null, customPlanConfig?: AppPlanConfig): number {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
         return freePlan.count_variants;
@@ -156,7 +160,9 @@ export function getAppPlanMaxVariants(appPlan: AppPlan | null, customPlanConfig:
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The instant sync feature
  */
-export function getAppPlanInstantSync(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): boolean {
+export function getAppPlanInstantSync(appPlan: typeof SHOP_APP_PLANS.CUSTOM, customPlanConfig: AppPlanConfig): boolean;
+export function getAppPlanInstantSync(appPlan: AppPlan | null): boolean;
+export function getAppPlanInstantSync(appPlan: AppPlan | null, customPlanConfig?: AppPlanConfig): boolean {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
         return freePlan.instant_sync;
@@ -174,7 +180,9 @@ export function getAppPlanInstantSync(appPlan: AppPlan | null, customPlanConfig:
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The synchronization frequency
  */
-export function getAppPlanSyncFrequency(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): SyncFrequency[] {
+export function getAppPlanSyncFrequency(appPlan: typeof SHOP_APP_PLANS.CUSTOM, customPlanConfig: AppPlanConfig): SyncFrequency[];
+export function getAppPlanSyncFrequency(appPlan: AppPlan | null): SyncFrequency[];
+export function getAppPlanSyncFrequency(appPlan: AppPlan | null, customPlanConfig?: AppPlanConfig): SyncFrequency[] {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
         return Array.from(freePlan.sync_frequency);
@@ -192,7 +200,9 @@ export function getAppPlanSyncFrequency(appPlan: AppPlan | null, customPlanConfi
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The product level mapping feature
  */
-export function getAppPlanProductLevelMapping(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): boolean {
+export function getAppPlanProductLevelMapping(appPlan: typeof SHOP_APP_PLANS.CUSTOM, customPlanConfig: AppPlanConfig): boolean;
+export function getAppPlanProductLevelMapping(appPlan: AppPlan | null): boolean;
+export function getAppPlanProductLevelMapping(appPlan: AppPlan | null, customPlanConfig?: AppPlanConfig): boolean {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
         return freePlan.has_product_level_mapping;
@@ -210,7 +220,9 @@ export function getAppPlanProductLevelMapping(appPlan: AppPlan | null, customPla
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The integrate product reviews feature
  */
-export function getAppPlanIntegrateProductReviews(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): boolean {
+export function getAppPlanIntegrateProductReviews(appPlan: typeof SHOP_APP_PLANS.CUSTOM, customPlanConfig: AppPlanConfig): boolean;
+export function getAppPlanIntegrateProductReviews(appPlan: AppPlan | null): boolean;
+export function getAppPlanIntegrateProductReviews(appPlan: AppPlan | null, customPlanConfig?: AppPlanConfig): boolean {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
         return freePlan.has_integrate_product_reviews;

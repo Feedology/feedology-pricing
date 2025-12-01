@@ -48,7 +48,7 @@ const customConfig: AppPlanConfig = {
   has_integrate_product_reviews: true,
 };
 
-const customMaxFeeds = getAppPlanCountFeeds('custom', customConfig); // 10
+const customMaxFeeds = getAppPlanCountFeeds('custom', customConfig); // 100
 ```
 
 ## Plan Features
@@ -115,27 +115,37 @@ interface AppPlanConfig {
 
 | Function | Description | Return Type |
 |----------|-------------|-------------|
-| `getAppPlanCountFeeds(plan, customPlanConfig?)` | Get maximum number of active feeds | `number` |
-| `getAppPlanMaxVariants(plan, customPlanConfig?)` | Get maximum number of variants | `number` |
-| `getAppPlanInstantSync(plan, customPlanConfig?)` | Check if instant sync is available | `boolean` |
-| `getAppPlanSyncFrequency(plan, customPlanConfig?)` | Get allowed sync frequencies | `SyncFrequency[]` |
-| `getAppPlanProductLevelMapping(plan, customPlanConfig?)` | Check if product level mapping is available | `boolean` |
-| `getAppPlanIntegrateProductReviews(plan, customPlanConfig?)` | Check if product reviews integration is available | `boolean` |
+| `getAppPlanCountFeeds(plan)` or `getAppPlanCountFeeds('custom', config)` | Get maximum number of active feeds | `number` |
+| `getAppPlanMaxVariants(plan)` or `getAppPlanMaxVariants('custom', config)` | Get maximum number of variants | `number` |
+| `getAppPlanInstantSync(plan)` or `getAppPlanInstantSync('custom', config)` | Check if instant sync is available | `boolean` |
+| `getAppPlanSyncFrequency(plan)` or `getAppPlanSyncFrequency('custom', config)` | Get allowed sync frequencies | `SyncFrequency[]` |
+| `getAppPlanProductLevelMapping(plan)` or `getAppPlanProductLevelMapping('custom', config)` | Check if product level mapping is available | `boolean` |
+| `getAppPlanIntegrateProductReviews(plan)` or `getAppPlanIntegrateProductReviews('custom', config)` | Check if product reviews integration is available | `boolean` |
+
+> **Note:** For standard plans (`'free'`, `'basic'`, `'pro'`), only pass the `plan` parameter. For `'custom'` plan, you must also pass the `config` parameter.
 
 **Function Signatures:**
 ```typescript
+// For custom plans - customPlanConfig is required
 function getAppPlanCountFeeds(
-  appPlan: AppPlan | null,
-  customPlanConfig?: AppPlanConfig
+  appPlan: 'custom',
+  customPlanConfig: AppPlanConfig
+): number;
+
+// For standard plans - customPlanConfig is not needed
+function getAppPlanCountFeeds(
+  appPlan: AppPlan | null
 ): number;
 
 // ... similar for all other functions
 ```
 
 > **Note:** 
-> - All helper functions default to FREE plan features when `appPlan` is `null` or `undefined`
-> - When `appPlan === 'custom'`, `customPlanConfig` is **required** (function will throw an error if not provided)
-> - For standard plans (`'free'`, `'basic'`, `'pro'`), `customPlanConfig` can be `undefined`
+> - All helper functions use **function overloading** to enforce type safety
+> - For standard plans (`'free'`, `'basic'`, `'pro'`), you **do not need** to pass `customPlanConfig`
+> - For `'custom'` plan, `customPlanConfig` is **required** (TypeScript will enforce this at compile time)
+> - Functions default to FREE plan features when `appPlan` is `null`
+> - Functions throw a runtime error if `appPlan === 'custom'` and `customPlanConfig` is not provided
 
 ## Types
 

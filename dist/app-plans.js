@@ -81,12 +81,6 @@ function assertCustomPlanConfig(appPlan, customPlanConfig) {
         throw new Error('customPlanConfig is required when appPlan is "custom"');
     }
 }
-/**
- * Get the count of feeds for a given app plan
- * @param appPlan - The app plan
- * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
- * @returns The count of feeds
- */
 export function getAppPlanCountFeeds(appPlan, customPlanConfig) {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
@@ -98,12 +92,6 @@ export function getAppPlanCountFeeds(appPlan, customPlanConfig) {
     }
     return APP_PLANS[appPlan].count_feeds ?? freePlan.count_feeds;
 }
-/**
- * Get the maximum number of variants for a given app plan
- * @param appPlan - The app plan
- * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
- * @returns The maximum number of variants
- */
 export function getAppPlanMaxVariants(appPlan, customPlanConfig) {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
@@ -115,12 +103,6 @@ export function getAppPlanMaxVariants(appPlan, customPlanConfig) {
     }
     return APP_PLANS[appPlan].count_variants ?? freePlan.count_variants;
 }
-/**
- * Get the instant sync feature for a given app plan
- * @param appPlan - The app plan
- * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
- * @returns The instant sync feature
- */
 export function getAppPlanInstantSync(appPlan, customPlanConfig) {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
@@ -132,12 +114,6 @@ export function getAppPlanInstantSync(appPlan, customPlanConfig) {
     }
     return APP_PLANS[appPlan].instant_sync;
 }
-/**
- * Get the synchronization frequency for a given app plan
- * @param appPlan - The app plan
- * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
- * @returns The synchronization frequency
- */
 export function getAppPlanSyncFrequency(appPlan, customPlanConfig) {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
@@ -149,12 +125,6 @@ export function getAppPlanSyncFrequency(appPlan, customPlanConfig) {
     }
     return Array.from(APP_PLANS[appPlan].sync_frequency ?? freePlan.sync_frequency);
 }
-/**
- * Get the product level mapping feature for a given app plan
- * @param appPlan - The app plan
- * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
- * @returns The product level mapping feature
- */
 export function getAppPlanProductLevelMapping(appPlan, customPlanConfig) {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
@@ -166,12 +136,6 @@ export function getAppPlanProductLevelMapping(appPlan, customPlanConfig) {
     }
     return APP_PLANS[appPlan].has_product_level_mapping ?? freePlan.has_product_level_mapping;
 }
-/**
- * Get the integrate product reviews feature for a given app plan
- * @param appPlan - The app plan
- * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
- * @returns The integrate product reviews feature
- */
 export function getAppPlanIntegrateProductReviews(appPlan, customPlanConfig) {
     const freePlan = APP_PLANS[SHOP_APP_PLANS.FREE];
     if (!appPlan) {
