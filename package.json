@@ -1,6 +1,6 @@
 {
   "name": "@feedology/pricing",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pricing and subscription plan definitions for Feedology app",
   "main": "dist/app-plans.js",
   "types": "dist/app-plans.d.ts",

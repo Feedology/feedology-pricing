@@ -103,40 +103,40 @@ export declare const APP_PLANS: {
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The count of feeds
  */
-export declare function getAppPlanCountFeeds(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): number;
+export declare function getAppPlanCountFeeds(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): number;
 /**
  * Get the maximum number of variants for a given app plan
  * @param appPlan - The app plan
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The maximum number of variants
  */
-export declare function getAppPlanMaxVariants(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): number;
+export declare function getAppPlanMaxVariants(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): number;
 /**
  * Get the instant sync feature for a given app plan
  * @param appPlan - The app plan
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The instant sync feature
  */
-export declare function getAppPlanInstantSync(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): boolean;
+export declare function getAppPlanInstantSync(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): boolean;
 /**
  * Get the synchronization frequency for a given app plan
  * @param appPlan - The app plan
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The synchronization frequency
  */
-export declare function getAppPlanSyncFrequency(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): SyncFrequency[];
+export declare function getAppPlanSyncFrequency(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): SyncFrequency[];
 /**
  * Get the product level mapping feature for a given app plan
  * @param appPlan - The app plan
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The product level mapping feature
  */
-export declare function getAppPlanProductLevelMapping(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): boolean;
+export declare function getAppPlanProductLevelMapping(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): boolean;
 /**
  * Get the integrate product reviews feature for a given app plan
  * @param appPlan - The app plan
  * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The integrate product reviews feature
  */
-export declare function getAppPlanIntegrateProductReviews(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): boolean;
+export declare function getAppPlanIntegrateProductReviews(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | undefined): boolean;
 //# sourceMappingURL=app-plans.d.ts.map

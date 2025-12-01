@@ -16,7 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Updated all `getAppPlan*` functions to require `customPlanConfig` parameter when `appPlan` is `'custom'`
 * Changed `appPlan` parameter type from `AppPlan | undefined | null` to `AppPlan | null` in all getter functions
-* Functions now throw an error if `appPlan === 'custom'` and `customPlanConfig` is null (instead of falling back to free plan)
+* Changed `customPlanConfig` parameter type from `AppPlanConfig | null` to `AppPlanConfig | undefined` in all getter functions
+* Functions now throw an error if `appPlan === 'custom'` and `customPlanConfig` is undefined (instead of falling back to free plan)
 
 ### Fixed
 

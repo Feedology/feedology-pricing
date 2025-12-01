@@ -74,7 +74,7 @@ export const APP_PLANS = {
 };
 /**
  * Validate custom plan configuration
- * @throws Error if appPlan is 'custom' and customPlanConfig is null
+ * @throws Error if appPlan is 'custom' and customPlanConfig is undefined
  */
 function assertCustomPlanConfig(appPlan, customPlanConfig) {
     if (appPlan === SHOP_APP_PLANS.CUSTOM && !customPlanConfig) {
