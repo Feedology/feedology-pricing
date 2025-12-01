@@ -1,0 +1,135 @@
+# CHANGELOG Update Rules
+
+## When to Update CHANGELOG.md
+
+Always update `CHANGELOG.md` when making changes to the codebase that affect:
+- Public API (exports, function signatures, types)
+- Breaking changes
+- New features
+- Bug fixes
+- Deprecations
+
+## CHANGELOG Format
+
+Follow the [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format:
+
+```markdown
+## [Unreleased]
+
+### Added
+- New features
+
+### Changed
+- Changes in existing functionality
+
+### Fixed
+- Bug fixes
+
+### Deprecated
+- Soon-to-be removed features
+
+### Removed
+- Removed features
+
+### Security
+- Security fixes
+```
+
+## Entry Format
+
+Each entry should follow this format:
+- Use present tense ("Add" not "Added")
+- Start with a capital letter
+- End without a period
+- Reference ticket/issue if applicable: `TICKET-123 Description`
+
+Example:
+```markdown
+### Added
+* Add `AppPlanConfig` interface to define plan configuration structure
+* Add validation for custom plan configuration requirement
+
+### Changed
+* Update `getAppPlanCountFeeds` to require `customPlanConfig` when plan is 'custom'
+* Change `appPlan` parameter type to `AppPlan | null` in all getter functions
+
+### Fixed
+* Fix fallback behavior when custom plan config is missing
+```
+
+## Version Release Process
+
+1. When releasing a new version:
+   - Move `[Unreleased]` entries to a new version section with date: `[0.0.2] - YYYY-MM-DD`
+   - Update version in `package.json`
+   - Create a new `[Unreleased]` section at the top
+
+2. Date format: `YYYY-MM-DD` (e.g., `2025-12-01`)
+
+## Guidelines
+
+- **Added**: New features, new exports, new types/interfaces
+- **Changed**: Modified function signatures, updated behavior, refactored code
+- **Fixed**: Bug fixes, error corrections
+- **Deprecated**: Features that will be removed in future versions
+- **Removed**: Features that were removed
+- **Security**: Security-related fixes
+
+## Best Practices
+
+- Update CHANGELOG.md in the same commit/PR as the code changes
+- Be descriptive but concise
+- Group related changes together
+- Use bullet points for clarity
+- Include migration notes if breaking changes occur
+
+## Git Commit Message Rules
+
+### Format Requirements
+
+- **Length**: Keep commit messages under 150 characters
+- **Clarity**: Be clear and concise about what the commit does
+- **Tense**: Use imperative mood (e.g., "Add", "Fix", "Update", not "Added", "Fixed", "Updated")
+
+### Commit Message Structure
+
+```
+<type>: <short description>
+
+[optional longer description]
+```
+
+### Commit Types
+
+- `feat`: New feature
+- `fix`: Bug fix
+- `refactor`: Code refactoring
+- `docs`: Documentation changes
+- `chore`: Maintenance tasks
+- `test`: Test additions or changes
+- `style`: Code style changes (formatting, etc.)
+
+### Examples
+
+**Good:**
+```
+feat: Add AppPlanConfig interface for custom plan configuration
+fix: Require customPlanConfig when appPlan is 'custom'
+refactor: Update getAppPlan functions to use AppPlan | null type
+docs: Add CHANGELOG and cursor rules for project maintenance
+```
+
+**Bad:**
+```
+Added new interface and updated functions to handle custom plans better (too long, past tense)
+fix bug (too vague)
+Update app-plans.ts (not descriptive enough)
+```
+
+### Guidelines
+
+- First line should be a complete sentence (no period at end)
+- Capitalize the first letter
+- Reference ticket/issue if applicable: `feat(TICKET-123): Add feature`
+- If more context is needed, add a blank line and write a longer description
+- Keep the subject line under 72 characters if possible, but maximum 150 characters

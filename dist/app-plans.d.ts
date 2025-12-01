@@ -6,6 +6,7 @@ export declare const SHOP_APP_PLANS: {
     readonly FREE: "free";
     readonly BASIC: "basic";
     readonly PRO: "pro";
+    readonly CUSTOM: "custom";
 };
 export type AppPlan = typeof SHOP_APP_PLANS[keyof typeof SHOP_APP_PLANS];
 /**
@@ -18,6 +19,29 @@ export declare const SYNC_FREQUENCY: {
 };
 export type SyncFrequency = typeof SYNC_FREQUENCY[keyof typeof SYNC_FREQUENCY];
 /**
+ * App Plan Configuration Interface
+ */
+export interface AppPlanConfig {
+    /** Display name of the plan */
+    name: string;
+    /** Price of the plan */
+    price: number;
+    /** Whether the plan is recurring (subscription) */
+    recurring: boolean;
+    /** Maximum number of active feeds */
+    count_feeds: number;
+    /** Maximum number of variants */
+    count_variants: number;
+    /** Available synchronization frequencies */
+    sync_frequency: readonly SyncFrequency[];
+    /** Whether instant sync feature is available (push on webhook) */
+    instant_sync: boolean;
+    /** Whether product level mapping is available */
+    has_product_level_mapping: boolean;
+    /** Whether product reviews integration is available */
+    has_integrate_product_reviews: boolean;
+}
+/**
  * App plans and their features
  *
  * - count_feeds: The maximum number of feeds is active
@@ -29,6 +53,9 @@ export type SyncFrequency = typeof SYNC_FREQUENCY[keyof typeof SYNC_FREQUENCY];
  */
 export declare const APP_PLANS: {
     readonly free: {
+        readonly name: "Free";
+        readonly price: 0;
+        readonly recurring: false;
         readonly count_feeds: 1;
         readonly count_variants: 50;
         readonly sync_frequency: readonly ["daily", "weekly"];
@@ -37,6 +64,9 @@ export declare const APP_PLANS: {
         readonly has_integrate_product_reviews: false;
     };
     readonly basic: {
+        readonly name: "Basic";
+        readonly price: 9.9;
+        readonly recurring: true;
         readonly count_feeds: 5;
         readonly count_variants: 500;
         readonly sync_frequency: readonly ["hourly", "daily", "weekly"];
@@ -45,6 +75,9 @@ export declare const APP_PLANS: {
         readonly has_integrate_product_reviews: true;
     };
     readonly pro: {
+        readonly name: "Pro";
+        readonly price: 29.9;
+        readonly recurring: true;
         readonly count_feeds: 20;
         readonly count_variants: 1000;
         readonly sync_frequency: readonly ["hourly", "daily", "weekly"];
@@ -52,41 +85,58 @@ export declare const APP_PLANS: {
         readonly has_product_level_mapping: true;
         readonly has_integrate_product_reviews: true;
     };
+    readonly custom: {
+        readonly name: "Custom";
+        readonly price: 0;
+        readonly recurring: true;
+        readonly count_feeds: 0;
+        readonly count_variants: 0;
+        readonly sync_frequency: readonly [];
+        readonly instant_sync: false;
+        readonly has_product_level_mapping: false;
+        readonly has_integrate_product_reviews: false;
+    };
 };
 /**
  * Get the count of feeds for a given app plan
  * @param appPlan - The app plan
+ * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The count of feeds
  */
-export declare function getAppPlanCountFeeds(appPlan: AppPlan | undefined): number;
+export declare function getAppPlanCountFeeds(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): number;
 /**
  * Get the maximum number of variants for a given app plan
  * @param appPlan - The app plan
+ * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The maximum number of variants
  */
-export declare function getAppPlanMaxVariants(appPlan: AppPlan | undefined | null): number;
+export declare function getAppPlanMaxVariants(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): number;
 /**
  * Get the instant sync feature for a given app plan
  * @param appPlan - The app plan
+ * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The instant sync feature
  */
-export declare function getAppPlanInstantSync(appPlan: AppPlan | undefined | null): boolean;
+export declare function getAppPlanInstantSync(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): boolean;
 /**
  * Get the synchronization frequency for a given app plan
  * @param appPlan - The app plan
+ * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The synchronization frequency
  */
-export declare function getAppPlanSyncFrequency(appPlan: AppPlan | undefined | null): SyncFrequency[];
+export declare function getAppPlanSyncFrequency(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): SyncFrequency[];
 /**
  * Get the product level mapping feature for a given app plan
  * @param appPlan - The app plan
+ * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The product level mapping feature
  */
-export declare function getAppPlanProductLevelMapping(appPlan: AppPlan | undefined | null): boolean;
+export declare function getAppPlanProductLevelMapping(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): boolean;
 /**
  * Get the integrate product reviews feature for a given app plan
  * @param appPlan - The app plan
+ * @param customPlanConfig - Custom plan configuration (required when appPlan is 'custom')
  * @returns The integrate product reviews feature
  */
-export declare function getAppPlanIntegrateProductReviews(appPlan: AppPlan | undefined | null): boolean;
+export declare function getAppPlanIntegrateProductReviews(appPlan: AppPlan | null, customPlanConfig: AppPlanConfig | null): boolean;
 //# sourceMappingURL=app-plans.d.ts.map
