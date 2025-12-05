@@ -91,10 +91,10 @@ export declare const APP_PLANS: {
         readonly recurring: true;
         readonly count_feeds: 0;
         readonly count_variants: 0;
-        readonly sync_frequency: readonly [];
-        readonly instant_sync: false;
-        readonly has_product_level_mapping: false;
-        readonly has_integrate_product_reviews: false;
+        readonly sync_frequency: readonly ["hourly", "daily", "weekly"];
+        readonly instant_sync: true;
+        readonly has_product_level_mapping: true;
+        readonly has_integrate_product_reviews: true;
     };
 };
 /**

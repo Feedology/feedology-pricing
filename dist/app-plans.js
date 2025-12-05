@@ -66,10 +66,10 @@ export const APP_PLANS = {
         recurring: true,
         count_feeds: 0,
         count_variants: 0,
-        sync_frequency: [],
-        instant_sync: false,
-        has_product_level_mapping: false,
-        has_integrate_product_reviews: false,
+        sync_frequency: [SYNC_FREQUENCY.HOURLY, SYNC_FREQUENCY.DAILY, SYNC_FREQUENCY.WEEKLY],
+        instant_sync: true,
+        has_product_level_mapping: true,
+        has_integrate_product_reviews: true,
     },
 };
 /**
