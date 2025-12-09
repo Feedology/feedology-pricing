@@ -1,5 +1,5 @@
 {
-  "name": "@feedology/pricing",
+  "name": "@Feedology/pricing",
   "version": "0.0.1",
   "description": "Pricing and subscription plan definitions for Feedology app",
   "main": "dist/app-plans.js",
@@ -10,6 +10,13 @@
       "import": "./dist/app-plans.js",
       "types": "./dist/app-plans.d.ts"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Feedology/feedology-pricing.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "build": "tsc",
@@ -24,12 +31,12 @@
   ],
   "author": "Nexary",
   "license": "UNLICENSED",
-  "private": true,
   "devDependencies": {
     "typescript": "^5.0.0"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ]
 }
 
