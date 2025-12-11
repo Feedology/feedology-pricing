@@ -53,7 +53,7 @@ export interface AppPlanConfig {
  */
 export declare const APP_PLANS: {
     readonly free: {
-        readonly name: "Free";
+        readonly name: "Starter";
         readonly price: 0;
         readonly recurring: false;
         readonly count_feeds: 1;
