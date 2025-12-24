@@ -28,9 +28,9 @@ export type SyncFrequency = typeof SYNC_FREQUENCY[keyof typeof SYNC_FREQUENCY];
  */
 export interface AppPlanConfig {
     /** Display name of the plan */
-    name: string;
+    name?: string;
     /** Price of the plan */
-    price: number;
+    price?: number;
     /** Whether the plan is recurring (subscription) */
     recurring: boolean;
     /** Maximum number of active feeds */
@@ -59,8 +59,6 @@ export interface AppPlanConfig {
  */
 export const APP_PLANS = {
     [SHOP_APP_PLANS.FREE]: {
-        name: 'Starter',
-        price: 0,
         recurring: false,
         count_feeds: 1,
         count_variants: 50,
@@ -70,8 +68,6 @@ export const APP_PLANS = {
         has_integrate_product_reviews: false,
     },
     [SHOP_APP_PLANS.BASIC]: {
-        name: 'Basic',
-        price: 9.9,
         recurring: true,
         count_feeds: 5,
         count_variants: 500,
@@ -81,8 +77,6 @@ export const APP_PLANS = {
         has_integrate_product_reviews: true,
     },
     [SHOP_APP_PLANS.PRO]: {
-        name: 'Pro',
-        price: 29.9,
         recurring: true,
         count_feeds: 20,
         count_variants: 1000,
@@ -93,7 +87,6 @@ export const APP_PLANS = {
     },
     [SHOP_APP_PLANS.CUSTOM]: {
         name: 'Custom',
-        price: 0,
         recurring: true,
         count_feeds: 0,
         count_variants: 0,

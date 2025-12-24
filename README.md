@@ -1,4 +1,4 @@
-# @feedology/pricing
+# feedology-pricing
 
 Shared pricing and subscription plan definitions for Feedology app.
 
@@ -28,7 +28,7 @@ import {
   getAppPlanSyncFrequency,
   getAppPlanProductLevelMapping,
   getAppPlanIntegrateProductReviews,
-} from '@feedology/pricing';
+} from 'feedology-pricing';
 
 // Get plan features for standard plans
 const maxFeeds = getAppPlanCountFeeds('basic'); // 5
