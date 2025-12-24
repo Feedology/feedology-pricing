@@ -37,8 +37,8 @@ const hasInstantSync = getAppPlanInstantSync('free'); // false
 
 // Custom plan requires configuration
 const customConfig: AppPlanConfig = {
-  name: 'Enterprise',
-  price: 99,
+  name: 'Enterprise', // optional
+  price: 99, // optional
   recurring: true,
   count_feeds: 100,
   count_variants: 10000,
@@ -99,8 +99,8 @@ Interface for custom plan configuration. Required when using `'custom'` plan typ
 
 ```typescript
 interface AppPlanConfig {
-  name: string;
-  price: number;
+  name?: string;
+  price?: number;
   recurring: boolean;
   count_feeds: number;
   count_variants: number;

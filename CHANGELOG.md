@@ -7,7 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.4] - 2025-12-01
+
+### Changed
+
+* Make free plan is recurring
+
 ## [0.0.3] - 2025-12-01
+
+### Changed
+
+* Make `name` and `price` fields optional in `AppPlanConfig` interface
 
 ### Added
 

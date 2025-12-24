@@ -28,7 +28,7 @@ export const SYNC_FREQUENCY = {
  */
 export const APP_PLANS = {
     [SHOP_APP_PLANS.FREE]: {
-        recurring: false,
+        recurring: true,
         count_feeds: 1,
         count_variants: 50,
         sync_frequency: [SYNC_FREQUENCY.DAILY, SYNC_FREQUENCY.WEEKLY],

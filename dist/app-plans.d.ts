@@ -53,7 +53,7 @@ export interface AppPlanConfig {
  */
 export declare const APP_PLANS: {
     readonly free: {
-        readonly recurring: false;
+        readonly recurring: true;
         readonly count_feeds: 1;
         readonly count_variants: 50;
         readonly sync_frequency: readonly ["daily", "weekly"];
